@@ -14,7 +14,7 @@ tf.keras.backend.set_floatx('float64')
 os.environ["RD_LIB_CONFIG_PATH"] = "Configuration"
 rd.open_session()
 
-end = date.today()
+end = pd.to_datetime(date.today())
 start = pd.to_datetime(end - relativedelta(months=15))
 beta_window = 90
 study_scope = 'stock'
