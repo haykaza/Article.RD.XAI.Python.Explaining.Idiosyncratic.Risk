@@ -28,7 +28,7 @@ class DataEngineering:
                 'raw_data': {'industry': industry, 'ratios': ratios, 'financials': financials, 'ranking': ranking,
                              'trading_activity': trading_activity, 'num_analyst': num_analyst, 'news': news}}
 
-    def get_prices(assets, self):
+    def get_prices(self, assets):
         start = self.start - relativedelta(days=1.5*self.window)
         return rd.get_history(assets, fields=['TRDPRC_1'], start=start.strftime("%Y-%m-%d"),
                               end=self.end.strftime("%Y-%m-%d"))
