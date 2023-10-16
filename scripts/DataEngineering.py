@@ -115,7 +115,7 @@ class DataEngineering:
                         query=f"{asset} and L:EN", count=10000, date_to=end).get_data().data.df
                     response.insert(0, 'Asset', asset)
                     newsdf = pd.concat([newsdf, response])
-                    end = datetime.date(response.index.min())
+                    end = pd.to_datetime((response.index.min()))
                 except:
                     continue
         newsdf = newsdf.drop_duplicates(subset=['Asset', 'headline']).reset_index(
